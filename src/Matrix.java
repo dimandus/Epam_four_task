@@ -105,4 +105,30 @@ public class Matrix {
 
         return  res;
     }
+
+    public static Matrix multiplication(Matrix left, Matrix right) {
+
+        if (left == null || right == null) {
+            return null;
+        }
+
+        if (left.columnCount != right.rowCount) {
+            return null;
+        }
+
+        Matrix res = new Matrix(left.rowCount, right.columnCount);
+        for (int i = 0; i < left.rowCount; i++) {
+
+            for (int j = 0; j < right.columnCount; j++) {
+                double itemToWrite = 0;
+                for (int k = 0; k < left.columnCount; k++) {
+                    itemToWrite += left.getElementAt(i, k) * right.getElementAt(k, j);
+                }
+                res.setElementAt(i, j, itemToWrite);
+            }
+
+        }
+
+        return res;
+    }
 }
