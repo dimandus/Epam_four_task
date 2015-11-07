@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Created by Dimandus on 07.11.2015.
@@ -36,4 +37,26 @@ public class ArrayTools {
 
         return true;
     }
+}
+
+public static int[] shuffle (int[] array) {
+    Random rnd = new Random();
+    int[] newArray = new int[array.length];
+
+    for(int i=0;i< array.length;i++) {
+        newArray[i] = array[i];
+    }
+
+
+    for(int i=0;i< newArray.length;i++) {
+        int oneIndex = rnd.nextInt(newArray.length);
+        int anotherIndex = rnd.nextInt(newArray.length);
+
+        int temp = newArray[oneIndex];
+        newArray[oneIndex] = newArray[anotherIndex];
+        newArray[anotherIndex] = temp;
+    }
+
+    return array;
+}
 }
