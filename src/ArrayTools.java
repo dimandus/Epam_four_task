@@ -6,15 +6,15 @@ import java.util.Random;
  */
 public class ArrayTools {
 
-    public static int[] changeLength(int[] array, int newLength){
+    public static int[] changeLength(int[] array, int newLength) {
 
         int[] newArray = new int[newLength];
 
-        for(int i=0;i<newLength;i++){
-            newArray[i]=array[i];
+        for (int i = 0; i < newLength; i++) {
+            newArray[i] = array[i];
         }
 
-        return  newArray;
+        return newArray;
     }
 
     /**
@@ -37,26 +37,34 @@ public class ArrayTools {
 
         return true;
     }
-}
 
-public static int[] shuffle (int[] array) {
-    Random rnd = new Random();
-    int[] newArray = new int[array.length];
+    public static int[] shuffle(int[] array) {
+        Random rnd = new Random();
+        int[] newArray = new int[array.length];
 
-    for(int i=0;i< array.length;i++) {
-        newArray[i] = array[i];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+
+
+        for (int i = 0; i < newArray.length; i++) {
+            int oneIndex = rnd.nextInt(newArray.length);
+            int anotherIndex = rnd.nextInt(newArray.length);
+
+            int temp = newArray[oneIndex];
+            newArray[oneIndex] = newArray[anotherIndex];
+            newArray[anotherIndex] = temp;
+        }
+
+        return array;
     }
 
+    public static String print(int[] array) {
+        String res = "";
 
-    for(int i=0;i< newArray.length;i++) {
-        int oneIndex = rnd.nextInt(newArray.length);
-        int anotherIndex = rnd.nextInt(newArray.length);
-
-        int temp = newArray[oneIndex];
-        newArray[oneIndex] = newArray[anotherIndex];
-        newArray[anotherIndex] = temp;
+        for (int i = 0; i < array.length; i++) {
+            res += array[i] + " ";
+        }
+        return res;
     }
-
-    return array;
-}
 }
