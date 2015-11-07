@@ -1,5 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
+import java.util.Collections.*;
 
 /**
  * Created by Dimandus on 07.11.2015.
@@ -37,9 +40,16 @@ public class ArrayTools {
         if (firstArray.length != secondArray.length) {
             return false;
         }
+        ArrayList<Integer> items = new ArrayList<Integer>();
+        for(int i=0;i<secondArray.length;i++){
+            items.add(secondArray[i]);
+        }
 
         for (int i = 0; i < firstArray.length; i++) {
-            if (Arrays.binarySearch(secondArray, firstArray[i]) == -1) {
+            if (items.contains(firstArray[i])) {
+               items.remove((Object)firstArray[i]);
+            }
+            else{
                 return false;
             }
 

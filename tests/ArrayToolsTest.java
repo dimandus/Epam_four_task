@@ -36,8 +36,9 @@ public class ArrayToolsTest {
 
     @Test
     public void testCompare() throws Exception {
-        assertTrue("Not true",ArrayTools.compare(new int[]{1, 2, 3}, new int[]{3, 2, 1}));
+        assertTrue("Not true", ArrayTools.compare(new int[]{1, 2, 3}, new int[]{3, 2, 1}));
         assertFalse("Not false", ArrayTools.compare(new int[]{1, 2, 3}, new int[]{4, 3, 2}));
+        assertTrue("Not false", ArrayTools.compare(new int[]{1, 1, 2, 3}, new int[]{1, 2, 3, 1}));
     }
 
     @Test
@@ -54,6 +55,6 @@ public class ArrayToolsTest {
 
     @Test
     public void testPrint() throws Exception {
-        assertEquals(ArrayTools.print(new int[]{1,2,3}),"1 2 3");
+        assertEquals(ArrayTools.print(new int[]{1, 2, 3}), "1 2 3");
     }
 }
