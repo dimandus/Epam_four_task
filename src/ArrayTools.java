@@ -31,6 +31,9 @@ public class ArrayTools {
      */
     public static boolean compare(int[] firstArray, int[] secondArray) {
 
+        if (firstArray==null|| secondArray==null) {
+            return false;
+        }
         if (firstArray.length != secondArray.length) {
             return false;
         }
