@@ -27,4 +27,8 @@ public class Matrix {
         items = new double[rowCount][columnCount];
 
     }
+
+    public double getElementAt(int row, int column) {
+        return items[row][column];
+    }
 }
