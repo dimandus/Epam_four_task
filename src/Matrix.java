@@ -31,4 +31,9 @@ public class Matrix {
     public double getElementAt(int row, int column) {
         return items[row][column];
     }
+
+    public void setElementAt(int row, int column, double value) {
+        items[row][column] = value;
+    }
+
 }
