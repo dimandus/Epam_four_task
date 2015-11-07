@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by Dimandus on 07.11.2015.
  */
@@ -73,5 +75,22 @@ public class Matrix {
         }
 
         return allOk;
+    }
+
+    public static boolean isEqual(Matrix first, Matrix second) {
+        boolean isEqual = true;
+
+        if (first.rowCount != second.rowCount || first.columnCount != second.columnCount) {
+            return false;
+        }
+
+        for (int i = 0; i < first.rowCount; i++) {
+            if (!Arrays.equals(first.items[i], second.items[i])) {
+                return false;
+            }
+        }
+
+        return true;
+
     }
 }
