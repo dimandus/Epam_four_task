@@ -8,8 +8,8 @@ public class ArrayToolsTest {
     public void testChangeLengthInc() throws Exception {
 
         assertArrayEquals(ArrayTools.changeLength
-                (new int[]{1, 2, 3, 4, 5}, 7),
-                 new int[]{1, 2, 3, 4, 5, 0, 0});
+                        (new int[]{1, 2, 3, 4, 5}, 7),
+                new int[]{1, 2, 3, 4, 5, 0, 0});
 
     }
 
@@ -55,5 +55,16 @@ public class ArrayToolsTest {
     @Test
     public void testPrint() throws Exception {
         assertEquals(ArrayTools.print(new int[]{1, 2, 3}), "1 2 3");
+    }
+
+    @Test
+    public void testFilter() throws Exception {
+        int[] source = new int[]{0, 10, 50, 105, 150, 155, 200, 255};
+        int[] testMore100 = new int[]{105, 150, 155, 200, 255};
+        int[] testTenFold = new int[]{0, 10, 50, 150, 200};
+
+        assertArrayEquals(testMore100, ArrayTools.filter(source, new FilterMore100()));
+        assertArrayEquals(testTenFold, ArrayTools.filter(source, new FilterTenFold()));
+
     }
 }

@@ -51,7 +51,7 @@ public class ArrayTools {
             }
         }
 
-        return res;
+        return ArrayTools.changeLength(res,count);
     }
 
     public static int[] shuffle(int[] array) {
