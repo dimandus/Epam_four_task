@@ -12,7 +12,7 @@ public class MatrixTest {
     @Test
     public void testSetElementAt() throws Exception {
         Matrix matr = new Matrix(new double[][]{{1, 2}, {3, 4}});
-        matr.setElementAt(1,0,6);
+        matr.setElementAt(1, 0, 6);
         assertEquals(matr.getElementAt(1, 0), 6, Double.MIN_VALUE);
     }
 
@@ -25,14 +25,14 @@ public class MatrixTest {
 
     @Test
     public void testMultiMatrNormal() throws Exception {
-        assertArrayEquals("Не умножаются верно", Matrix.multiplication(new Matrix(new double[][]{{1,2},{3,4}}), new Matrix(new double[][]{{1,2},{3,4}})).items,
-                new Matrix(new double[][]{{7,10},{15,22}}).items);
+        assertArrayEquals("Не умножаются верно", Matrix.multiplication(new Matrix(new double[][]{{1, 2}, {3, 4}}), new Matrix(new double[][]{{1, 2}, {3, 4}})).items,
+                new Matrix(new double[][]{{7, 10}, {15, 22}}).items);
 
     }
 
     @Test
     public void testMultiMatrDimensionsNotMatch() throws Exception {
-        assertNull("На выходе должен быть null",Matrix.multiplication(new Matrix(new double[][]{{1, 2}}), new Matrix(new double[][]{{1}})));
+        assertNull("На выходе должен быть null", Matrix.multiplication(new Matrix(new double[][]{{1, 2}}), new Matrix(new double[][]{{1}})));
 
     }
 

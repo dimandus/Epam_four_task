@@ -11,29 +11,28 @@ public class ArrayTools {
         if (array == null) {
             return null;
         }
-        int[] newArray = Arrays.copyOf(array,newLength);
+        int[] newArray = Arrays.copyOf(array, newLength);
 
         return newArray;
     }
 
     public static boolean compare(int[] first, int[] second) {
 
-        if (first==null|| second==null) {
+        if (first == null || second == null) {
             return false;
         }
         if (first.length != second.length) {
             return false;
         }
         ArrayList<Integer> items = new ArrayList<Integer>();
-        for(int i=0;i<second.length;i++){
+        for (int i = 0; i < second.length; i++) {
             items.add(second[i]);
         }
 
         for (int i = 0; i < first.length; i++) {
             if (items.contains(first[i])) {
-               items.remove((Object)first[i]);
-            }
-            else{
+                items.remove((Object) first[i]);
+            } else {
                 return false;
             }
 
@@ -67,12 +66,10 @@ public class ArrayTools {
         String res = "";
 
         for (int i = 0; i < source.length; i++) {
-            if(i!=source.length-1) {
+            if (i != source.length - 1) {
                 res += source[i] + " ";
-            }
-            else
-            {
-                res+= source[i];
+            } else {
+                res += source[i];
             }
         }
         return res;

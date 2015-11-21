@@ -8,14 +8,12 @@ public class Matrix {
 
     public Matrix(double[][] source) {
         items = source;
-        if(source!=null) {
+        if (source != null) {
             rowCount = source.length;
             columnCount = source[0].length;
-        }
-        else
-        {
+        } else {
             rowCount = 0;
-            columnCount =0;
+            columnCount = 0;
         }
     }
 
@@ -55,6 +53,7 @@ public class Matrix {
 
     /**
      * ѕроверка, все ли значени€ матрицы инициализированы
+     *
      * @param source матрица
      * @return результат
      */
@@ -91,16 +90,16 @@ public class Matrix {
 
     }
 
-    public  static Matrix addition (Matrix first, Matrix second){
-        Matrix res = new Matrix(Math.max(first.rowCount,second.rowCount),Math.max(first.columnCount,second.columnCount));
+    public static Matrix addition(Matrix first, Matrix second) {
+        Matrix res = new Matrix(Math.max(first.rowCount, second.rowCount), Math.max(first.columnCount, second.columnCount));
 
-        for(int i=0 ;i<res.rowCount;i++) {
-            for(int j=0; j<res.rowCount;j++) {
+        for (int i = 0; i < res.rowCount; i++) {
+            for (int j = 0; j < res.rowCount; j++) {
                 res.setElementAt(i, j, first.getElementAt(i, j) + second.getElementAt(i, j));
             }
         }
 
-        return  res;
+        return res;
     }
 
     public static Matrix multiplication(Matrix left, Matrix right) {
