@@ -92,7 +92,10 @@ public class Matrix {
     }
 
     public static Matrix add(Matrix first, Matrix second) {
-        Matrix res = new Matrix(Math.max(first.rowCount, second.rowCount), Math.max(first.columnCount, second.columnCount));
+        if (first.rowCount != second.rowCount || first.columnCount != second.columnCount)
+            return null;
+
+        Matrix res = new Matrix(first.rowCount, first.columnCount);
 
         for (int i = 0; i < res.rowCount; i++) {
             for (int j = 0; j < res.rowCount; j++) {
