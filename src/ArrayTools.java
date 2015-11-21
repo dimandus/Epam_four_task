@@ -45,7 +45,11 @@ public class ArrayTools {
         int count=0;
         int[] res = new int[source.length];
 
-
+        for (int aSource : source) {
+            if(predicate.verify(aSource)) {
+                res[count++] = aSource;
+            }
+        }
 
         return res;
     }
@@ -78,4 +82,6 @@ public class ArrayTools {
         }
         return res;
     }
+
+
 }
