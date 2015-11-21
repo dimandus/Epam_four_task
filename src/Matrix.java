@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Matrix {
+public class Matrix implements Cloneable{
 
     final double[][] items;
     final int rowCount;
@@ -134,5 +134,16 @@ public class Matrix {
         }
 
         return res;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        double[][] newItems = new double[this.rowCount][];
+
+        for (int i = 0; i < this.rowCount; i++) {
+            newItems[i] = Arrays.copyOf(this.items[i], this.items[i].length);
+        }
+
+        return new Matrix(newItems);
     }
 }
