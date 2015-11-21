@@ -16,9 +16,9 @@ public class Matrix {
             columnCount = 0;
         }
 
-        items = new double[source.length][];
+        items = new double[rowCount][];
 
-        for (int i = 0; i < source.length; i++) {
+        for (int i = 0; i < rowCount; i++) {
             items[i] = Arrays.copyOf(source[i], source[i].length);
         }
     }
