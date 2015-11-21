@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 public class Matrix {
 
-    double[][] items;
-    int rowCount;
-    int columnCount;
+    final double[][] items;
+    final int rowCount;
+    final int columnCount;
 
     public Matrix(double[][] source) {
         items = source;
