@@ -43,12 +43,7 @@ public class ArrayTools {
 
     public static int[] shuffle(int[] array) {
         Random rnd = new Random();
-        int[] newArray = new int[array.length];
-
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-
+        int[] newArray = Arrays.copyOf(array, array.length);
 
         for (int i = 0; i < newArray.length; i++) {
             int oneIndex = rnd.nextInt(newArray.length);
