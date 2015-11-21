@@ -6,7 +6,7 @@ public class MatrixTest {
 
     @Test
     public void testGetElementAt() throws Exception {
-        assertEquals("—бой инициализации",(new Matrix(5, 5).getElementAt(3, 3)), 0, Double.MIN_VALUE);
+        assertEquals("—бой инициализации", (new Matrix(5, 5).getElementAt(3, 3)), 0, Double.MIN_VALUE);
         assertEquals(new Matrix(new double[][]{{1, 2}, {3, 4}}).getElementAt(1, 0), 3, Double.MIN_VALUE);
     }
 
@@ -21,7 +21,7 @@ public class MatrixTest {
     public void testAddition() throws Exception {
         Matrix matr1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
         Matrix matr2 = new Matrix(new double[][]{{1, 2}, {3, 4}});
-        assertTrue((Matrix.isEqual(Matrix.add(matr1, matr2), new Matrix(new double[][]{{2, 4}, {6, 8}}))));
+        assertTrue((Matrix.add(matr1, matr2).equals(new Matrix(new double[][]{{2, 4}, {6, 8}}))));
     }
 
     @Test

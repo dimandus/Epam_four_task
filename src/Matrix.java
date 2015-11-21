@@ -74,21 +74,25 @@ public class Matrix {
         return allOk;
     }
 
-    public static boolean isEqual(Matrix first, Matrix second) {
-        boolean isEqual = true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if (first.rowCount != second.rowCount || first.columnCount != second.columnCount) {
-            return false;
-        }
+        Matrix matrix = (Matrix) o;
 
-        for (int i = 0; i < first.rowCount; i++) {
-            if (!Arrays.equals(first.items[i], second.items[i])) {
-                return false;
-            }
-        }
+        if (rowCount != matrix.rowCount) return false;
+        if (columnCount != matrix.columnCount) return false;
+        return Arrays.deepEquals(items, matrix.items);
 
-        return true;
+    }
 
+    @Override
+    public int hashCode() {
+        int result = items != null ? Arrays.deepHashCode(items) : 0;
+        result = 31 * result + rowCount;
+        result = 31 * result + columnCount;
+        return result;
     }
 
     public static Matrix add(Matrix first, Matrix second) {
