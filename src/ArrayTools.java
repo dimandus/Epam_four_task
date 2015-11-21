@@ -25,27 +25,22 @@ public class ArrayTools {
         return newArray;
     }
 
-    /**
-     * @param firstArray
-     * @param secondArray
-     * @return return true, if arrays are equalent
-     */
-    public static boolean compare(int[] firstArray, int[] secondArray) {
+    public static boolean compare(int[] first, int[] second) {
 
-        if (firstArray==null|| secondArray==null) {
+        if (first==null|| second==null) {
             return false;
         }
-        if (firstArray.length != secondArray.length) {
+        if (first.length != second.length) {
             return false;
         }
         ArrayList<Integer> items = new ArrayList<Integer>();
-        for(int i=0;i<secondArray.length;i++){
-            items.add(secondArray[i]);
+        for(int i=0;i<second.length;i++){
+            items.add(second[i]);
         }
 
-        for (int i = 0; i < firstArray.length; i++) {
-            if (items.contains(firstArray[i])) {
-               items.remove((Object)firstArray[i]);
+        for (int i = 0; i < first.length; i++) {
+            if (items.contains(first[i])) {
+               items.remove((Object)first[i]);
             }
             else{
                 return false;
@@ -77,16 +72,16 @@ public class ArrayTools {
         return array;
     }
 
-    public static String print(int[] array) {
+    public static String print(int[] source) {
         String res = "";
 
-        for (int i = 0; i < array.length; i++) {
-            if(i!=array.length-1) {
-                res += array[i] + " ";
+        for (int i = 0; i < source.length; i++) {
+            if(i!=source.length-1) {
+                res += source[i] + " ";
             }
             else
             {
-                res+= array[i];
+                res+= source[i];
             }
         }
         return res;

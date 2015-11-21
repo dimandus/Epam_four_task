@@ -91,12 +91,12 @@ public class Matrix {
 
     }
 
-    public  static Matrix addition (Matrix firstMatr, Matrix secondMatr){
-        Matrix res = new Matrix(Math.max(firstMatr.rowCount,secondMatr.rowCount),Math.max(firstMatr.columnCount,secondMatr.columnCount));
+    public  static Matrix addition (Matrix first, Matrix second){
+        Matrix res = new Matrix(Math.max(first.rowCount,second.rowCount),Math.max(first.columnCount,second.columnCount));
 
         for(int i=0 ;i<res.rowCount;i++) {
             for(int j=0; j<res.rowCount;j++) {
-                res.setElementAt(i,j,firstMatr.getElementAt(i,j)+secondMatr.getElementAt(i,j));
+                res.setElementAt(i, j, first.getElementAt(i, j) + second.getElementAt(i, j));
             }
         }
 

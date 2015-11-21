@@ -7,7 +7,9 @@ public class ArrayToolsTest {
     @Test
     public void testChangeLengthInc() throws Exception {
 
-        assertArrayEquals(ArrayTools.changeLength(new int[]{1, 2, 3, 4, 5}, 7), new int[]{1, 2, 3, 4, 5, 0, 0});
+        assertArrayEquals(ArrayTools.changeLength
+                (new int[]{1, 2, 3, 4, 5}, 7),
+                 new int[]{1, 2, 3, 4, 5, 0, 0});
 
     }
 
