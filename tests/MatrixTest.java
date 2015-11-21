@@ -26,22 +26,22 @@ public class MatrixTest {
 
     @Test
     public void testMultiMatrNormal() throws Exception {
-        assertArrayEquals("Не умножаются верно", Matrix.multiplication(new Matrix(new double[][]{{1, 2}, {3, 4}}), new Matrix(new double[][]{{1, 2}, {3, 4}})).items,
+        assertArrayEquals("Не умножаются верно", Matrix.multiply(new Matrix(new double[][]{{1, 2}, {3, 4}}), new Matrix(new double[][]{{1, 2}, {3, 4}})).items,
                 new Matrix(new double[][]{{7, 10}, {15, 22}}).items);
 
     }
 
     @Test
     public void testMultiMatrDimensionsNotMatch() throws Exception {
-        assertNull("На выходе должен быть null", Matrix.multiplication(new Matrix(new double[][]{{1, 2}}), new Matrix(new double[][]{{1}})));
+        assertNull("На выходе должен быть null", Matrix.multiply(new Matrix(new double[][]{{1, 2}}), new Matrix(new double[][]{{1}})));
 
     }
 
     @Test
     public void testMultiMatrOneOrMoreMatrixIsNull() throws Exception {
-        assertNull("На выходе должен быть null", Matrix.multiplication(new Matrix(null), new Matrix(new double[][]{{1, 2}, {1, 2}})));
-        assertNull("На выходе должен быть null", Matrix.multiplication(new Matrix(new double[][]{{1, 2}, {1, 2}}), null));
-        assertNull("На выходе должен быть null", Matrix.multiplication(null, null));
+        assertNull("На выходе должен быть null", Matrix.multiply(new Matrix(null), new Matrix(new double[][]{{1, 2}, {1, 2}})));
+        assertNull("На выходе должен быть null", Matrix.multiply(new Matrix(new double[][]{{1, 2}, {1, 2}}), null));
+        assertNull("На выходе должен быть null", Matrix.multiply(null, null));
 
     }
 }

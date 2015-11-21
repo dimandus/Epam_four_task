@@ -103,7 +103,7 @@ public class Matrix {
         return res;
     }
 
-    public static Matrix multiplication(Matrix left, Matrix right) {
+    public static Matrix multiply(Matrix left, Matrix right) {
 
         if (left == null || right == null) {
             return null;
