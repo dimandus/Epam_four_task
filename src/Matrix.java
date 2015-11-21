@@ -137,7 +137,7 @@ public class Matrix implements Cloneable{
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         double[][] newItems = new double[this.rowCount][];
 
         for (int i = 0; i < this.rowCount; i++) {

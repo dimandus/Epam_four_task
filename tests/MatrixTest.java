@@ -11,6 +11,12 @@ public class MatrixTest {
     }
 
     @Test
+    public void testClone() throws Exception {
+        Matrix test = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        assertTrue(test.equals((Matrix) test.clone()));
+    }
+
+    @Test
     public void testSetElementAt() throws Exception {
         Matrix matr = new Matrix(new double[][]{{1, 2}, {3, 4}});
         matr.setElementAt(1, 0, 6);
