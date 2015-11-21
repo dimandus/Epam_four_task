@@ -49,7 +49,9 @@ public class ArrayToolsTest {
 
     @Test
     public void testShuffle() throws Exception {
+        int[] source = new int[]{1, 2, 3, 4, 5};
 
+        assertTrue(ArrayTools.compare(source, ArrayTools.shuffle(source)));
     }
 
     @Test

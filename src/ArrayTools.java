@@ -67,7 +67,7 @@ public class ArrayTools {
             newArray[anotherIndex] = temp;
         }
 
-        return array;
+        return newArray;
     }
 
     public static String print(int[] source) {
