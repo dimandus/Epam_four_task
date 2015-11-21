@@ -1,24 +1,25 @@
 import java.util.Arrays;
 
-/**
- * Created by Dimandus on 07.11.2015.
- */
-public class Matrix {
+public class Matrix implements Cloneable{
 
-    double[][] items;
-    int rowCount;
-    int columnCount;
+    final double[][] items;
+    final int rowCount;
+    final int columnCount;
 
     public Matrix(double[][] source) {
-        items = source;
-        if(source!=null) {
+
+        if (source != null) {
             rowCount = source.length;
             columnCount = source[0].length;
-        }
-        else
-        {
+        } else {
             rowCount = 0;
-            columnCount =0;
+            columnCount = 0;
+        }
+
+        items = new double[rowCount][];
+
+        for (int i = 0; i < rowCount; i++) {
+            items[i] = Arrays.copyOf(source[i], source[i].length);
         }
     }
 
@@ -56,11 +57,7 @@ public class Matrix {
         return res;
     }
 
-    /**
-     * ѕроверка, все ли значени€ матрицы инициализированы
-     * @param source матрица
-     * @return результат
-     */
+
     public boolean isCorrect(double[][] source) {
 
         if (source == null) {
@@ -77,36 +74,43 @@ public class Matrix {
         return allOk;
     }
 
-    public static boolean isEqual(Matrix first, Matrix second) {
-        boolean isEqual = true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if (first.rowCount != second.rowCount || first.columnCount != second.columnCount) {
-            return false;
-        }
+        Matrix matrix = (Matrix) o;
 
-        for (int i = 0; i < first.rowCount; i++) {
-            if (!Arrays.equals(first.items[i], second.items[i])) {
-                return false;
-            }
-        }
-
-        return true;
+        if (rowCount != matrix.rowCount) return false;
+        if (columnCount != matrix.columnCount) return false;
+        return Arrays.deepEquals(items, matrix.items);
 
     }
 
-    public  static Matrix addition (Matrix firstMatr, Matrix secondMatr){
-        Matrix res = new Matrix(Math.max(firstMatr.rowCount,secondMatr.rowCount),Math.max(firstMatr.columnCount,secondMatr.columnCount));
+    @Override
+    public int hashCode() {
+        int result = items != null ? Arrays.deepHashCode(items) : 0;
+        result = 31 * result + rowCount;
+        result = 31 * result + columnCount;
+        return result;
+    }
 
-        for(int i=0 ;i<res.rowCount;i++) {
-            for(int j=0; j<res.rowCount;j++) {
-                res.setElementAt(i,j,firstMatr.getElementAt(i,j)+secondMatr.getElementAt(i,j));
+    public static Matrix add(Matrix first, Matrix second) {
+        if (first.rowCount != second.rowCount || first.columnCount != second.columnCount)
+            return null;
+
+        Matrix res = new Matrix(first.rowCount, first.columnCount);
+
+        for (int i = 0; i < res.rowCount; i++) {
+            for (int j = 0; j < res.rowCount; j++) {
+                res.setElementAt(i, j, first.getElementAt(i, j) + second.getElementAt(i, j));
             }
         }
 
-        return  res;
+        return res;
     }
 
-    public static Matrix multiplication(Matrix left, Matrix right) {
+    public static Matrix multiply(Matrix left, Matrix right) {
 
         if (left == null || right == null) {
             return null;
@@ -130,5 +134,16 @@ public class Matrix {
         }
 
         return res;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        double[][] newItems = new double[this.rowCount][];
+
+        for (int i = 0; i < this.rowCount; i++) {
+            newItems[i] = Arrays.copyOf(this.items[i], this.items[i].length);
+        }
+
+        return new Matrix(newItems);
     }
 }

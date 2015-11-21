@@ -1,35 +1,38 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
+import java.util.Collections.*;
 
-/**
- * Created by Dimandus on 07.11.2015.
- */
+
 public class ArrayTools {
 
     public static int[] changeLength(int[] array, int newLength) {
-
-        int[] newArray = new int[newLength];
-
-        for (int i = 0; i < newLength; i++) {
-            newArray[i] = array[i];
+        if (array == null) {
+            return null;
         }
+        int[] newArray = Arrays.copyOf(array, newLength);
 
         return newArray;
     }
 
-    /**
-     * @param firstArray
-     * @param secondArray
-     * @return return true, if arrays are equalent
-     */
-    public static boolean compare(int[] firstArray, int[] secondArray) {
+    public static boolean compare(int[] first, int[] second) {
 
-        if (firstArray.length != secondArray.length) {
+        if (first == null || second == null) {
             return false;
         }
+        if (first.length != second.length) {
+            return false;
+        }
+        ArrayList<Integer> items = new ArrayList<Integer>();
+        for (int i = 0; i < second.length; i++) {
+            items.add(second[i]);
+        }
 
-        for (int i = 0; i < firstArray.length; i++) {
-            if (Arrays.binarySearch(secondArray, firstArray[i]) == -1) {
+        for (int i = 0; i < first.length; i++) {
+            if (items.contains(first[i])) {
+                items.remove((Object) first[i]);
+            } else {
                 return false;
             }
 
@@ -38,14 +41,22 @@ public class ArrayTools {
         return true;
     }
 
-    public static int[] shuffle(int[] array) {
-        Random rnd = new Random();
-        int[] newArray = new int[array.length];
+    public static int[] filter(int[]source, Predicat predicate){
+        int count=0;
+        int[] res = new int[source.length];
 
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
+        for (int aSource : source) {
+            if(predicate.verify(aSource)) {
+                res[count++] = aSource;
+            }
         }
 
+        return ArrayTools.changeLength(res,count);
+    }
+
+    public static int[] shuffle(int[] array) {
+        Random rnd = new Random();
+        int[] newArray = Arrays.copyOf(array, array.length);
 
         for (int i = 0; i < newArray.length; i++) {
             int oneIndex = rnd.nextInt(newArray.length);
@@ -56,15 +67,21 @@ public class ArrayTools {
             newArray[anotherIndex] = temp;
         }
 
-        return array;
+        return newArray;
     }
 
-    public static String print(int[] array) {
+    public static String print(int[] source) {
         String res = "";
 
-        for (int i = 0; i < array.length; i++) {
-            res += array[i] + " ";
+        for (int i = 0; i < source.length; i++) {
+            if (i != source.length - 1) {
+                res += source[i] + " ";
+            } else {
+                res += source[i];
+            }
         }
         return res;
     }
+
+
 }
