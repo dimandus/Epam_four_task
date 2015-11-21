@@ -7,13 +7,19 @@ public class Matrix {
     final int columnCount;
 
     public Matrix(double[][] source) {
-        items = source;
+
         if (source != null) {
             rowCount = source.length;
             columnCount = source[0].length;
         } else {
             rowCount = 0;
             columnCount = 0;
+        }
+
+        items = new double[source.length][];
+
+        for (int i = 0; i < source.length; i++) {
+            items[i] = Arrays.copyOf(source[i], source[i].length);
         }
     }
 
