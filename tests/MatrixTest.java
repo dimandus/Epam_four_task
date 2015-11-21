@@ -6,6 +6,7 @@ public class MatrixTest {
 
     @Test
     public void testGetElementAt() throws Exception {
+        assertEquals("—бой инициализации",(new Matrix(5, 5).getElementAt(3, 3)), 0, Double.MIN_VALUE);
         assertEquals(new Matrix(new double[][]{{1, 2}, {3, 4}}).getElementAt(1, 0), 3, Double.MIN_VALUE);
     }
 
