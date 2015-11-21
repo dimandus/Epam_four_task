@@ -11,16 +11,7 @@ public class ArrayTools {
         if (array == null) {
             return null;
         }
-        int[] newArray = new int[newLength];
-
-        for (int i = 0; i < newLength; i++) {
-            if (i < array.length) {
-                newArray[i] = array[i];
-            } else {
-                newArray[i] = 0;
-            }
-
-        }
+        int[] newArray = Arrays.copyOf(array,newLength);
 
         return newArray;
     }
