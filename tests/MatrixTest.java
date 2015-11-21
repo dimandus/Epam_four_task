@@ -21,7 +21,7 @@ public class MatrixTest {
     public void testAddition() throws Exception {
         Matrix matr1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
         Matrix matr2 = new Matrix(new double[][]{{1, 2}, {3, 4}});
-        assertTrue((Matrix.isEqual(Matrix.addition(matr1, matr2), new Matrix(new double[][]{{2, 4}, {6, 8}}))));
+        assertTrue((Matrix.isEqual(Matrix.add(matr1, matr2), new Matrix(new double[][]{{2, 4}, {6, 8}}))));
     }
 
     @Test

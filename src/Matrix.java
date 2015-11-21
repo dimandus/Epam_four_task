@@ -57,12 +57,7 @@ public class Matrix {
         return res;
     }
 
-    /**
-     * ѕроверка, все ли значени€ матрицы инициализированы
-     *
-     * @param source матрица
-     * @return результат
-     */
+
     public boolean isCorrect(double[][] source) {
 
         if (source == null) {
@@ -96,7 +91,7 @@ public class Matrix {
 
     }
 
-    public static Matrix addition(Matrix first, Matrix second) {
+    public static Matrix add(Matrix first, Matrix second) {
         Matrix res = new Matrix(Math.max(first.rowCount, second.rowCount), Math.max(first.columnCount, second.columnCount));
 
         for (int i = 0; i < res.rowCount; i++) {
