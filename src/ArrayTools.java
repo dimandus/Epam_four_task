@@ -41,6 +41,15 @@ public class ArrayTools {
         return true;
     }
 
+    public static int[] filter(int[]source, Predicat predicate){
+        int count=0;
+        int[] res = new int[source.length];
+
+
+
+        return res;
+    }
+
     public static int[] shuffle(int[] array) {
         Random rnd = new Random();
         int[] newArray = Arrays.copyOf(array, array.length);
