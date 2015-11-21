@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Collections.*;
 
-/**
- * Created by Dimandus on 07.11.2015.
- */
+
 public class ArrayTools {
 
     public static int[] changeLength(int[] array, int newLength) {
